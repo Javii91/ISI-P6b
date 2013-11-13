@@ -1,0 +1,51 @@
+<head>
+	<title> Chat Alien </title>
+</head>
+<body>
+	{{ loginButtons align='right' }} <br>
+	<h1> Chat Alien </h1>
+	{{> juego }}
+	{{> leaderboard }}
+	{{> welcome }}
+	{{> input }}
+	{{> messages }}
+
+</body>
+
+<template name="welcome">
+	<br>
+	<p> Welcome to Chat Alien! Please, log in to show your username </p>
+</template>
+
+<template name="messages">
+	<br><h1>CHAT</h1><br>
+	{{#each messages}}
+		<strong> {{ name }}: </strong> {{ message }} <br/>
+	{{/each}}
+</template>
+
+<template name="input">
+	<br>
+	<p> Message: <input type="text" id="message"></p>
+</template>
+
+<template name="juego">
+	<div id='container'>
+		<canvas id='game' width='320' height='480'></canvas>
+	</div>
+</template>
+
+<template name="leaderboard">
+  <div class="leaderboard">
+  	 <br><h1>RANKING</h1>
+    {{#each players}}
+      {{> player}}
+      <br>
+    {{/each}}
+  </div>
+</template>
+
+<template name="player">
+    <span class="name">{{name}}</span>
+    <span class="score">{{score}}</span>
+</template>
